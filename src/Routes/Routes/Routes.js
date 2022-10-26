@@ -7,6 +7,7 @@ import Login from '../../Components/Login/Login';
 import Register from '../../Components/Register/Register';
 import SingleCourse from '../../Components/SignleCourse/SingleCourse';
 import Main from '../../Layout/Main';
+import PrivateRoute from '../PrivateRoute/PrivateRoute';
 
 export const routes = createBrowserRouter([
     {
@@ -46,7 +47,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/premium/:id',
-                element: <Checkout></Checkout>,
+                element: <PrivateRoute><Checkout></Checkout></PrivateRoute>,
                 loader: ({params}) => fetch(`http://localhost:5000/premium/${params.id}`)
             }
         ]
