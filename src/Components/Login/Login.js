@@ -23,8 +23,16 @@ const Login = () => {
         <Button className="w-100" variant="primary" type="submit">
           Login
         </Button>
-        
+        <hr />
+        <p className="text-center">Or</p>
+        <Button className="w-100 mb-2" variant="outline-primary">
+          Sign In with Google
+        </Button>
+        <Button className="w-100" variant="outline-danger">
+          Sign In with GitHub
+        </Button>
       </Form>
+      <p className="text-center mt-2">New to this Website?<Link to='/register' className="text-decoration-none"> Register here!</Link></p>
     </>
   );
 };
