@@ -27,7 +27,7 @@ const SingleCourse = () => {
         </Card.Text>
       </Card.Body>
       <Card.Body>
-        <Link to={`/premium/${_id}}`}><Button className="">Get Premium Access</Button></Link>
+        <Link to={`/premium/${_id}`}><Button className="">Get Premium Access</Button></Link>
       </Card.Body>
     </Card>
   );
