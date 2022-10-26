@@ -13,8 +13,8 @@ const Courses = () => {
           <div className=" bg-secondary p-3 rounded">
             <h2>Overall Courses</h2>
             {courses.map((course) => 
-              <p>
-                <Link to={`/${course._id}`} className="text-decoration-none text-white" >{course.title}</Link>
+            <p>
+                <Link to={`/courses/${course._id}`} className="text-decoration-none text-white" >{course.title}</Link>
               </p>
             )}
           </div>
