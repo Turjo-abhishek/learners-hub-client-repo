@@ -7,7 +7,7 @@ import { AuthContext } from "../../Contexts/Authprovider/Authprovider";
 import './Register.css';
 
 const Register = () => {
-  const {createUser} = useContext(AuthContext);
+  const {createUser, updateUserProfile} = useContext(AuthContext);
 
   const handleRegister = (event) => {
     event.preventDefault();
@@ -21,7 +21,18 @@ const Register = () => {
       const user = result.user;
       console.log(user);
       form.reset();
+      handleUpdateUserProfile(name, photoUrl);
     })
+    .catch(error => console.error(error))
+  }
+
+  const handleUpdateUserProfile = (name, photoUrl) => {
+    const profile ={
+      displayName: name,
+      photoURL: photoUrl
+    }
+    updateUserProfile(profile)
+    .then(() => {})
     .catch(error => console.error(error))
   }
   return (
@@ -42,7 +53,7 @@ const Register = () => {
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
-          <Form.Control name="email" type="email" placeholder="Enter email" />
+          <Form.Control name="email" type="email" placeholder="Enter email" required/>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -51,10 +62,8 @@ const Register = () => {
             name="password"
             type="password"
             placeholder="Password"
+            required
           />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Check me out" />
         </Form.Group>
         <Button className="w-100" variant="primary" type="submit">
           Register

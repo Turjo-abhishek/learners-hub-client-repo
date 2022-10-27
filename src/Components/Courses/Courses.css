@@ -1,0 +1,27 @@
+.custom-left-nav{
+    height: 60vh;
+    background-color: rgb(202, 85, 65);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+    margin-top: 90px;
+}
+
+
+.left-nav-course{
+    font-size: 15px;
+    margin-bottom: 25px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+.left-nav-course:hover{
+    color: rgb(175, 179, 112) !important;
+}
+
+@media screen and (max-width: 600px) {
+    .custom-left-nav{
+        margin-top: 10px;
+    }
+    
+}
