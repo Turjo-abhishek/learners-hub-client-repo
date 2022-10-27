@@ -12,7 +12,7 @@ const CourseCard = ({ course }) => {
       <Card.Body>
         <Card.Title className="h-25">{title}</Card.Title>
         <Card.Text>
-          <span>{details.slice(0,140)}...</span>
+          <span>{details?.slice(0,140)}...</span>
         </Card.Text>
         <Link to={`/courses/${_id}`}><Button className="w-100" variant="primary">Read Details</Button></Link>
       </Card.Body>

@@ -4,7 +4,7 @@ import { useLoaderData } from "react-router-dom";
 
 const Checkout = () => {
   const premiumCourse = useLoaderData();
-  const { title, image_url, details, author } = premiumCourse;
+  const { title, author } = premiumCourse;
   return (
     <>
       <h2 className="text-center text-danger mt-5 mb-4">
