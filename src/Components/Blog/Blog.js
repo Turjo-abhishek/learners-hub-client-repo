@@ -5,7 +5,7 @@ const Blog = () => {
   return (
     <>
     <h2 className="text-danger mb-3 text-center fs-1 fw-bold mt-5">Blog</h2>
-      <Accordion className="w-75 mx-auto">
+      <Accordion className="w-75 mx-auto mb-5">
         <Accordion.Item eventKey="0">
           <Accordion.Header>What is Cors?</Accordion.Header>
           <Accordion.Body>

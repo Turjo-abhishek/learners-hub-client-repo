@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
 import { useContext } from "react";
 import { AuthContext } from "../../Contexts/Authprovider/Authprovider";
+import './Login.css';
 
 const Login = () => {
 
@@ -53,7 +54,7 @@ const Login = () => {
   }
   return (
     <>
-      <Form onSubmit={handleLogin} className="w-25 mx-auto border rounded mt-5 p-3">
+      <Form onSubmit={handleLogin} className=" mx-auto border rounded mt-5 p-3 custom-login">
         <h2 className="mb-3">Sign In</h2>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>

@@ -6,9 +6,13 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../Contexts/Authprovider/Authprovider";
 import { Button } from "react-bootstrap";
+import logo from '../../assets/logo-removebg-preview.png';
+import './Header.css';
+import { useState } from "react";
 
 const Header = () => {
   const {user, logOut} = useContext(AuthContext);
+  const [isDark, setIsDark] = useState(false);
 
   const handleLogOut = () => {
     logOut()
@@ -20,19 +24,23 @@ const Header = () => {
     })
   }
 
+  const handleToggle = () =>{
+    setIsDark(!isDark);
+  }
+
   return (
-    <Navbar collapseOnSelect expand="lg" bg="light">
+    <Navbar className="navbar-custom" collapseOnSelect expand="lg" bg="light">
       <Container>
         <Navbar.Brand>
-          <Link to='/'>
+          <Link className="navbar-name" to='/'>
             <img
               alt=""
-              src="/logo.svg"
-              width="30"
-              height="30"
+              src={logo}
+              width="60"
+              height="40"
               className="d-inline-block align-top"
             />{" "}
-            Learner's Hub
+            <span>Learner's Hub</span>
           </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -43,19 +51,27 @@ const Header = () => {
           </Nav>
           <Nav>
             
-              <Link to="/courses">Courses</Link>
+              <Link className="nav-link" to="/courses">Courses</Link>
             
-            <Link to='/faq'>FAQ</Link>
-            <Link to='/blog'>Blog</Link>
+            <Link className="nav-link" to='/faq'>FAQ</Link>
+            <Link className="nav-link" to='/blog'>Blog</Link>
             {
               user?.uid? 
-              <Button onClick={handleLogOut} variant="outline-primary">Sign Out</Button>
+              <Button className="logout-btn" onClick={handleLogOut}>Sign Out</Button>
               :
               <>
-              <Link to="/login">Sign In</Link>
-              <Link to="/register">Register</Link>
+              <Link className="nav-link" to="/login">Sign In</Link>
+              <Link className="nav-link" to="/register">Register</Link>
             </>
             }
+            {
+              isDark? 
+              <Button className="toggle-btn-light" onClick={handleToggle}>Light Mode</Button>
+              :
+              <Button className="toggle-btn-dark" onClick={handleToggle}>Dark Mode</Button>
+
+            }
+
           </Nav>
         </Navbar.Collapse>
       </Container>

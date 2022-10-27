@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Contexts/Authprovider/Authprovider";
+import './Register.css';
 
 const Register = () => {
   const {createUser} = useContext(AuthContext);
@@ -25,7 +26,7 @@ const Register = () => {
   }
   return (
     <>
-      <Form onSubmit={handleRegister} className="w-25 mx-auto border rounded mt-5 p-3">
+      <Form onSubmit={handleRegister} className=" mx-auto border rounded mt-5 p-3 custom-register">
         <h2 className="mb-3">Register</h2>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Your Name</Form.Label>

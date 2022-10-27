@@ -11,7 +11,7 @@ const SingleCourse = () => {
   const course = useLoaderData();
   const { image_url, title, details, price, rating, author, _id } = course;
   return (
-    <Card ref={ref} className="w-50 mx-auto my-5">
+    <Card ref={ref} className="w-50  mx-auto my-5">
       <Card.Img variant="top" src={image_url} />
       <Card.Body>
         <Card.Title className=" d-flex justify-content-between align-items-center">
