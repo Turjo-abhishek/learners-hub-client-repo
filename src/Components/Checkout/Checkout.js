@@ -4,7 +4,6 @@ import { useLoaderData } from "react-router-dom";
 
 const Checkout = () => {
   const premiumCourse = useLoaderData();
-  console.log(premiumCourse);
   const { title, image_url, details, author } = premiumCourse;
   return (
     <>

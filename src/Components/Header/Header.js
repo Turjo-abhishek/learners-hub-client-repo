@@ -13,7 +13,6 @@ import { FaUser } from "react-icons/fa";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
-  console.log(user);
   const [isDark, setIsDark] = useState(false);
 
   const handleLogOut = () => {
@@ -63,9 +62,8 @@ const Header = () => {
             {
               user?.uid?
               <button
-                className="user-photo"
+                className=" btn user-photo"
                   type="button"
-                  class="btn"
                   data-bs-toggle="tooltip"
                   data-bs-placement="top"
                   title={user?.displayName}
@@ -78,9 +76,8 @@ const Header = () => {
                 </button>
                 :
                 <button
-                className="user-photo"
+                className="btn user-photo"
                   type="button"
-                  class="btn"
                   data-bs-toggle="tooltip"
                   data-bs-placement="top"
                   title={user?.displayName}
