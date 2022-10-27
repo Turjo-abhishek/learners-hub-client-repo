@@ -29,10 +29,10 @@ const SingleCourse = () => {
           </p>
           <div className="d-flex justify-content-between align-items-center mb-3">
             <div>
-              <span>Author: {author.name}</span>
+              <span>Author: {author?.name}</span>
             </div>
             <div className="d-flex align-items-center gap-1">
-              <span>Rating: {rating.number}</span>
+              <span>Rating: {rating?.number}</span>
               <FaStar className="text-warning"></FaStar>
             </div>
           </div>

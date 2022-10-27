@@ -13,8 +13,8 @@ const Courses = () => {
           <div className="custom-left-nav">
             <h2 className="mb-4 text-white fw-bolder">Overall Courses</h2>
             {courses.map((course) => 
-            <p key={course._id} className="">
-                <Link to={`/courses/${course._id}`} className="left-nav-course" >{course.title}</Link>
+            <p key={course?._id} className="">
+                <Link to={`/courses/${course?._id}`} className="left-nav-course" >{course?.title}</Link>
               </p>
             )}
           </div>
@@ -24,7 +24,7 @@ const Courses = () => {
             <h2 className="mb-4 mt-4 fw-bolder text-center text-danger">Course Details</h2>
             <div className="row row-cols-lg-3 gap-4">
                 {
-                    courses.map(course => <CourseCard key={course._id} course={course}></CourseCard>)
+                    courses.map(course => <CourseCard key={course?._id} course={course}></CourseCard>)
                 }
             </div>
             

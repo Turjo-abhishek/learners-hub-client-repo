@@ -11,7 +11,7 @@ const Checkout = () => {
         Check Out the Course
       </h2>
       <Card className="text-center w-75 mx-auto">
-        <Card.Header>Instructor: {author.name}</Card.Header>
+        <Card.Header>Instructor: {author?.name}</Card.Header>
         <Card.Body>
           <Card.Title>{title}</Card.Title>
           <Card.Text>
