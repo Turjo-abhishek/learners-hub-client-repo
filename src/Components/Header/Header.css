@@ -21,6 +21,10 @@
 .nav-link:hover{
     color: khaki !important;
 }
+.user-photo{
+     background: none !important;
+     border: none !important;
+}
 
 .logout-btn{
     color: white !important;

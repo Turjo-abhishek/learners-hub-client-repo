@@ -5,7 +5,6 @@ import CourseCard from "../CourseCard/CourseCard";
 
 const Courses = () => {
   const courses = useLoaderData();
-  console.log(courses);
   return (
     <Container className="mt-5 mb-5">
       <Row>

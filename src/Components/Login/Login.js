@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
 import { useContext } from "react";
 import { AuthContext } from "../../Contexts/Authprovider/Authprovider";
+import { FaGithub, FaGoogle } from "react-icons/fa";
 import './Login.css';
 
 const Login = () => {
@@ -36,7 +37,6 @@ const Login = () => {
     googleLogin(googleProvider)
     .then(result => {
       const user = result.user;
-      console.log(user);
       navigate(from, {replace: true})
     })
     .catch(error => console.error(error));
@@ -73,10 +73,12 @@ const Login = () => {
         </Button>
         <hr />
         <p className="text-center">Or</p>
-        <Button onClick={handleGoogle} className="w-100 mb-2" variant="outline-primary">
-          Sign In with Google
+        <Button onClick={handleGoogle} className="w-100 mb-2 d-flex align-items-center gap-2 justify-content-center" variant="outline-primary">
+        <FaGoogle></FaGoogle>
+          <span>Sign In with Google</span>
         </Button>
-        <Button onClick={handleGithub} className="w-100" variant="outline-danger">
+        <Button onClick={handleGithub} className="w-100  d-flex align-items-center gap-2 justify-content-center" variant="outline-danger">
+        <FaGithub></FaGithub>
           Sign In with GitHub
         </Button>
       </Form>

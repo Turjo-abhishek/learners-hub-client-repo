@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 
 const CourseCard = ({ course }) => {
     const {title, image_url, details, _id} = course;
-  console.log(course);
   return (
     <Card className="">
       <Card.Img height={150} variant="top" src={image_url} />

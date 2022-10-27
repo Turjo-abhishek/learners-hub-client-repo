@@ -5,34 +5,34 @@ import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../Contexts/Authprovider/Authprovider";
-import { Button } from "react-bootstrap";
-import logo from '../../assets/logo-removebg-preview.png';
-import './Header.css';
+import { Button, Image } from "react-bootstrap";
+import logo from "../../assets/logo-removebg-preview.png";
+import "./Header.css";
 import { useState } from "react";
+import { FaUser } from "react-icons/fa";
 
 const Header = () => {
-  const {user, logOut} = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+  console.log(user);
   const [isDark, setIsDark] = useState(false);
 
   const handleLogOut = () => {
     logOut()
-    .then(() => {
+      .then(() => {})
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
-    })
-    .catch(error => {
-      console.error(error); 
-    })
-  }
-
-  const handleToggle = () =>{
+  const handleToggle = () => {
     setIsDark(!isDark);
-  }
+  };
 
   return (
     <Navbar className="navbar-custom" collapseOnSelect expand="lg" bg="light">
       <Container>
         <Navbar.Brand>
-          <Link className="navbar-name" to='/'>
+          <Link className="navbar-name" to="/">
             <img
               alt=""
               src={logo}
@@ -50,28 +50,70 @@ const Header = () => {
             <Nav.Link href="#pricing">Pricing</Nav.Link> */}
           </Nav>
           <Nav>
-            
-              <Link className="nav-link" to="/courses">Courses</Link>
-            
-            <Link className="nav-link" to='/faq'>FAQ</Link>
-            <Link className="nav-link" to='/blog'>Blog</Link>
+            <Link className="nav-link" to="/courses">
+              Courses
+            </Link>
+
+            <Link className="nav-link" to="/faq">
+              FAQ
+            </Link>
+            <Link className="nav-link" to="/blog">
+              Blog
+            </Link>
             {
-              user?.uid? 
-              <Button className="logout-btn" onClick={handleLogOut}>Sign Out</Button>
-              :
+              user?.uid?
+              <button
+                className="user-photo"
+                  type="button"
+                  class="btn"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title={user?.displayName}
+                >
+                  <Image
+                  className="rounded-pill"
+                  width={30}
+                  src={user?.photoURL}
+                ></Image>
+                </button>
+                :
+                <button
+                className="user-photo"
+                  type="button"
+                  class="btn"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title={user?.displayName}
+                >
+                  <FaUser></FaUser>
+                </button>
+                  
+            }
+            {user?.uid ? (
               <>
-              <Link className="nav-link" to="/login">Sign In</Link>
-              <Link className="nav-link" to="/register">Register</Link>
-            </>
-            }
-            {
-              isDark? 
-              <Button className="toggle-btn-light" onClick={handleToggle}>Light Mode</Button>
-              :
-              <Button className="toggle-btn-dark" onClick={handleToggle}>Dark Mode</Button>
-
-            }
-
+                <Button className="logout-btn" onClick={handleLogOut}>
+                  Sign Out
+                </Button>
+              </>
+            ) : (
+              <>
+                <Link className="nav-link" to="/login">
+                  Sign In
+                </Link>
+                <Link className="nav-link" to="/register">
+                  Register
+                </Link>
+              </>
+            )}
+            {isDark ? (
+              <Button className="toggle-btn-light" onClick={handleToggle}>
+                Light Mode
+              </Button>
+            ) : (
+              <Button className="toggle-btn-dark" onClick={handleToggle}>
+                Dark Mode
+              </Button>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>
