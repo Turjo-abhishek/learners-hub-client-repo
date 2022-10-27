@@ -5,13 +5,14 @@ import { FaStar } from "react-icons/fa";
 import { HiOutlineDownload } from "react-icons/hi";
 import { Button } from "react-bootstrap";
 import Pdf from "react-to-pdf";
+import './singleCourse.css';
 const ref = React.createRef();
 
 const SingleCourse = () => {
   const course = useLoaderData();
   const { image_url, title, details, price, rating, author, _id } = course;
   return (
-    <Card ref={ref} className="w-50  mx-auto my-5">
+    <Card ref={ref} className=" custom-singleCourse">
       <Card.Img variant="top" src={image_url} />
       <Card.Body>
         <Card.Title className=" d-flex justify-content-between align-items-center">

@@ -1,0 +1,12 @@
+.custom-singleCourse{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 80px;
+}
+
+@media screen and (max-width: 600px) {
+    .custom-singleCourse{
+        width: 75%;
+    }
+}
