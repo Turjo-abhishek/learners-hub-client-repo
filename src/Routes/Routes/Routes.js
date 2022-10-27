@@ -2,6 +2,7 @@ import {createBrowserRouter} from 'react-router-dom';
 import Blog from '../../Components/Blog/Blog';
 import Checkout from '../../Components/Checkout/Checkout';
 import Courses from '../../Components/Courses/Courses';
+import Error from '../../Components/Error/Error';
 import FAQ from '../../Components/FAQ/FAQ';
 import Login from '../../Components/Login/Login';
 import Register from '../../Components/Register/Register';
@@ -51,5 +52,9 @@ export const routes = createBrowserRouter([
                 loader: ({params}) => fetch(`http://localhost:5000/premium/${params.id}`)
             }
         ]
+    },
+    {
+        path: '*',
+        element: <Error></Error>
     }
 ])
