@@ -5,6 +5,7 @@ import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Contexts/Authprovider/Authprovider";
 import './Register.css';
+import toast from 'react-hot-toast';
 
 const Register = () => {
   const {createUser, updateUserProfile} = useContext(AuthContext);
@@ -22,6 +23,7 @@ const Register = () => {
       console.log(user);
       form.reset();
       handleUpdateUserProfile(name, photoUrl);
+      toast.success('Congratulations!! You are registered')
     })
     .catch(error => console.error(error))
   }
