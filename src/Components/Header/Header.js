@@ -5,9 +5,21 @@ import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../Contexts/Authprovider/Authprovider";
+import { Button } from "react-bootstrap";
 
 const Header = () => {
-  const {user} = useContext(AuthContext);
+  const {user, logOut} = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+    .then(() => {
+
+    })
+    .catch(error => {
+      console.error(error); 
+    })
+  }
+
   return (
     <Navbar collapseOnSelect expand="lg" bg="light">
       <Container>
@@ -30,22 +42,18 @@ const Header = () => {
             <Nav.Link href="#pricing">Pricing</Nav.Link> */}
           </Nav>
           <Nav>
-            <Nav.Link>
+            
               <Link to="/courses">Courses</Link>
-            </Nav.Link>
-            <Nav.Link href="#memes">FAQ</Nav.Link>
-            <Nav.Link href="#memes">Blog</Nav.Link>
+            
+            <Link to='/faq'>FAQ</Link>
+            <Link to='/blog'>Blog</Link>
             {
               user?.uid? 
-              <Link>sign out</Link>
+              <Button onClick={handleLogOut} variant="outline-primary">Sign Out</Button>
               :
               <>
-              <Nav.Link>
               <Link to="/login">Sign In</Link>
-            </Nav.Link>
-            <Nav.Link>
               <Link to="/register">Register</Link>
-            </Nav.Link>
             </>
             }
           </Nav>
