@@ -10,9 +10,9 @@ const CourseCard = ({ course }) => {
     <Card className="custom-card">
       <Card.Img height={150} variant="top" src={image_url} />
       <Card.Body>
-        <Card.Title>{title}</Card.Title>
+        <Card.Title className="h-25">{title}</Card.Title>
         <Card.Text>
-          <span>{details.slice(0,150)}...</span>
+          <span>{details.slice(0,140)}...</span>
         </Card.Text>
         <Link to={`/courses/${_id}`}><Button className="w-100" variant="primary">Read Details</Button></Link>
       </Card.Body>
