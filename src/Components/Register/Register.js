@@ -6,9 +6,11 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../Contexts/Authprovider/Authprovider";
 import './Register.css';
 import toast from 'react-hot-toast';
+import { useState } from "react";
 
 const Register = () => {
   const {createUser, updateUserProfile} = useContext(AuthContext);
+  const [error, setError] = useState("");
 
   const handleRegister = (event) => {
     event.preventDefault();
@@ -25,7 +27,7 @@ const Register = () => {
       handleUpdateUserProfile(name, photoUrl);
       toast.success('Congratulations!! You are registered')
     })
-    .catch(error => console.error(error))
+    .catch(error => setError(error))
   }
 
   const handleUpdateUserProfile = (name, photoUrl) => {
@@ -67,6 +69,7 @@ const Register = () => {
             required
           />
         </Form.Group>
+        {error && <p className="text-danger">{error}</p>}
         <Button className="w-100" variant="primary" type="submit">
           Register
         </Button>

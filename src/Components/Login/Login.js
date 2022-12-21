@@ -70,9 +70,9 @@ const Login = () => {
           <Form.Label>Password</Form.Label>
           <Form.Control name="password" type="password" placeholder="Password" required/>
         </Form.Group>
-        <Form.Text className="text-danger">
+        {error && <Form.Text className="text-danger">
           {error}
-        </Form.Text>
+        </Form.Text>}
         <Button className="w-100" variant="primary" type="submit">
           Login
         </Button>

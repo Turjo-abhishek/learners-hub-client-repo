@@ -10,10 +10,14 @@ const CourseCard = ({ course }) => {
     <Card className="custom-card">
       <Card.Img height={150} variant="top" src={image_url} />
       <Card.Body>
-        <Card.Title className="h-25">{title}</Card.Title>
-        <Card.Text>
-          <span>{details?.slice(0,140)}...</span>
+        <Card.Title className="h-25 mb-3">{title}</Card.Title>
+        <Card.Text className="mb-1">
+          <span>{details?.slice(0,100)}...</span>
         </Card.Text>
+        {/* <p className="">
+          <span>{details?.slice(0,50)}...</span>
+        </p> */}
+
         <Link to={`/courses/${_id}`}><Button className="w-100" variant="primary">Read Details</Button></Link>
       </Card.Body>
     </Card>
