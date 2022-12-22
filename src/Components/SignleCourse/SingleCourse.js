@@ -28,7 +28,7 @@ const SingleCourse = () => {
             <strong className="fw-bold fs-5 text-danger">Price:</strong> {price}{" "}
             Taka
           </p>
-          <div className="d-flex justify-content-between align-items-center mb-3">
+          <div className="d-lg-flex justify-content-between align-items-center mb-3">
             <div>
               <span>Author: {author?.name}</span>
             </div>
